@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="utf-8">
+        <title>API de Gatos</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css">
+		
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+
+		<style>
+			body {
+				font-family: "Nunito", sans-serif;
+				background: linear-gradient(135deg, #fff7ed, #fce7f3);
+			}
+			.cat-card{
+				max-width: 680px;
+				border-radius: 24px;
+				background: linear-gradient(135deg, #fff7ed, #fce7f3);
+			}
+
+			#img_cat {
+				width: min(100%, 480px);
+				aspect-ratio: 4 / 3;
+				max-height: 400px;
+				object-fit: cover;
+				border-radius: 16px;
+			}
+			.btn-cats {
+				background-color: #b45309;
+				border-color: #92400e;
+				color: rgb(255, 255, 255);
+			}
+
+			.btn-cats:hover {
+				background-color: #92400e;
+				border-color: #92400e;
+				color: rgb(250, 248, 248);
+			}
+
+/*
+				<---------------------------------------------------------->
+
+						Style para a criação do botão do modo escuro
+
+				<---------------------------------------------------------->
+*/
+			body.modo-escuro {
+				background: #111827;
+				color: #f9fafb;
+			}
+
+			body.modo-escuro .cat-card {
+				background: #1f2937;
+				color: #f9fafb;
+			}
+
+			body.modo-escuro .text-secundary {
+				color: #d1d5db !important;
+			}
+
+
+		</style>
+    </head>
+    <body>
+		<main class="container min-vh-100 d-flex flex-column align-items-center justify-content-center py-5 gap-3">
+			<section class="card cat-card border-0 shadow-lg">
+				<div class="card-body text-center p-4 p-md-5">
+					<span class="badge rounded-pill text-bg-warning mb-3">Um momento fofo</span>
+					<h1 class="display-5 fw-bold mb-2">Cantinho dos gatos</h1>
+					<p class="lead text-secondary mb-4">
+						Conheça um gatinho diferente a cada clique.
+					</p>
+					
+					<img
+						id="img_cat"
+						class="img-fluid mb-4"
+						src="https://cataas.com/cat?width=400&height=300"
+						alt="Imagem aleatória de um gato"
+					>
+					<div>
+						<button class="btn btn-cats btn-lg rounded-pill px-4" onclick="carregarGato()">
+							Ver outro gato
+						</button>
+
+						<botton class="btn btn-outline-secondary" onclick="alternarModoEscuro()">
+							Modo escuro
+						</botton>
+					</div>
+				</div>
+				<p class="small text-secondary text-center px-3 py-3 mb-0">
+					Imagens fornecidas por:
+					<a href="https://cataas.com/" target="_blank" rel="noopener noreferrer">CATAAS</a>.
+				</p>
+			</section>
+		</main>
+	<script>
+		function carregarGato(){
+		
+			var imgGato = document.getElementById("img_cat");
+			imgGato.src = "https://cataas.com/cat?width=400&height=300&t=" + Date.now();
+			}
+
+		function alternarModoEscuro(){
+			document.body.classList.toggle("modo-escuro")
+		}
+    </script>
+    </body>
+</html>
